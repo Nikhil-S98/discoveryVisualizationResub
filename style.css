@@ -1,0 +1,211 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+    background-image: url('./assets/tokyo1.jpg');
+    background-size:contain;
+    background-repeat: repeat;
+    background-position: bottom;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #000000;
+    color: white;
+    padding: 0;
+    padding-top: 20rem;
+    margin-top: -20rem;
+    height: 10rem;
+    width: 100%;
+}
+
+#title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 78px;
+  font-weight: 600;
+  text-shadow: 
+  0 0 5px rgba(255, 255, 255, 0.8), /* Inner glow */
+  0 0 17px rgba(255, 255, 255, 0.4);
+}
+
+#subtitle {
+  font-size: 18px;
+}
+
+.artistIntro {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    justify-content: space-between;
+    padding-bottom: 0;
+    width: 90vw;
+}
+
+#artistImage {
+    width: 50%; /* Each child takes up 50% of the container */
+    box-sizing: border-box; /* Ensures padding/borders are included in the width */
+    margin: 0;
+}
+
+#artistIntroText {
+  padding-top: 0vw;
+  padding-bottom: 0vw;
+  padding-right: 2%;
+  padding-left: 2%;
+  width: 46%;
+  font-family: "open sans", sans-serif;
+  font-size: 35px;
+}
+
+.albumIntro {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    justify-content: space-between;
+    width: 90vw;
+}
+
+#albumIntroText {
+  padding-top: 0vw;
+  padding-bottom: 0vw;
+  padding-right: 2%;
+  padding-left: 2%;
+  width: 46%;
+  font-family: "open sans", sans-serif;
+  font-size: 33px;
+}
+
+#albumArt {
+    width: 50%; /* Each child takes up 50% of the container */
+    box-sizing: border-box; /* Ensures padding/borders are included in the width */
+}
+
+#samplesExplained {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  justify-content: space-between;
+  width: 90vw;
+}
+
+#samplesDescription {
+  background-color: #000000;
+  color: white;
+  padding-top: 0vw;
+  padding-bottom: 0vw;
+  padding-right: 2%;
+  padding-left: 2%;
+  width: 46%;
+  font-family: "open sans", sans-serif;
+  font-size: 27px;
+}
+
+#pieContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48%;
+  margin: 0;
+}
+
+#datesSection {
+  width: 90vw;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+#datesHeader {
+  padding: 2vw;
+}
+
+#songsComparison {
+  padding-right: 20px;
+}
+
+.graphContainer {
+  width: 90vw;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+.graph-description {
+  padding: 2vw;
+}
+
+.graph {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  padding-bottom: 4vh;
+}
+
+#samplesPerSong svg text {
+    fill: white;
+}
+
+ #samplesPerSong svg line {
+    stroke: rgb(149, 28, 255);
+}
+
+#showStopper {
+  width: 90vw;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 25px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#headerFTF {
+  padding: 2vw;
+}
+
+#graphSectionFTF {
+  display: flex;
+  flex-direction: row;
+}
+
+#faceToFaceChart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+#sampleArt {
+  background-color: white;
+  width: 50%; /* Each child takes up 50% of the container */
+  box-sizing: border-box; /* Ensures padding/borders are included in the width */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#sampleArtImage {
+  width: 30rem;
+}

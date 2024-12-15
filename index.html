@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="./style.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+            <title>Discovery Visualization</title>
+
+            <!--bebas neue-->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+            <!--open sans-->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+            
+            <!---exo-->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,629;1,629&display=swap" rel="stylesheet">
+
+            <!---rajdhani-->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Exo:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,629;1,629&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        </head>
+
+        <body>
+            <header>
+                <div id="title">VERY DISCO</div>
+                <div id="subtitle">THE SAMPLES OF <strong>DISCOVERY</strong> BY DAFT PUNK</div>
+            </header>
+
+            <div class ="artistIntro">
+                <img id="artistImage" src="./assets/tokyo2.jpg">
+
+                <p id="artistIntroText">
+                    Emerging in the 1990s, Daft Punk is a legendary electronic music duo 
+                    known for their pioneering contributions to the genre. Comprising 
+                    Thomas Bangalter and Guy-Manuel de Homem-Christo, the French duo gained 
+                    worldwide acclaim for their innovative sound, blending house, disco, 
+                    funk, and pop with cutting-edge production techniques. Their music not 
+                    only pushed the boundaries of electronic music but also paid homage to 
+                    their influences, reflecting a deep respect for the sounds that
+                     shaped their artistry. Renowned for their enigmatic robot personas 
+                     and groundbreaking live performances, Daft Punk created a legacy 
+                     that forever changed the landscape of modern music.
+                </p>
+            </div>
+
+            <div class ="albumIntro">
+                <p id="albumIntroText">
+                    Released in 2001, <em>Discovery</em> is a landmark album 
+                    that redefined electronic music. Renowned for its seamless fusion of 
+                    house, disco, funk, and pop, the album reflects the duo's deep 
+                    reverence for their musical influences. Central to 
+                    <em>Discovery</em> is its intricate use of disco-centric 
+                    samples, carefully selected from a single transformative 
+                    decade of music history, reimagined with a futuristic flair. 
+                    This page delves into the complexity of <em>Discovery</em>, 
+                    exploring its artistry and the inspirations that fueled its creation.
+                </p>
+
+                <img id="albumArt" src="./assets/discovery.png" alt="Discovery Album Cover">
+            </div>
+
+            <div id="samplesExplained">
+                <div id="samplesDescription">
+                    <p>
+                    In music, samples are short snippets of pre-existing audio recordings that 
+                    artists or producers incorporate into their own tracks. These recordings 
+                    can come from a wide range of sources, such as other songs, movies, interviews, 
+                    or even everyday sounds. The process involves cutting, looping, or altering 
+                    these pieces of audio to fit into a new composition.
+                    </p>
+
+                    <p>
+                    Daft Punk extensively used samples on <em>Discovery</em>, transforming 
+                    snippets of older songs into entirely new compositions. They creatively 
+                    manipulated these samples—changing tempos, pitches, and layering them with 
+                    original elements—to craft their signature blend of electronic, funk, and disco.
+                    </p>
+                </div>
+                
+                <div id="pieContainer">
+                    <div id="songsComparison"></div>
+                </div>
+
+            </div>
+
+            <div id="datesSection">
+                <div id="datesHeader">All Recognized Songs Sampled on <em>Discovery</em></div>
+                <div id="sampleDates"></div>
+            </div>
+
+            <div class="graphContainer">
+                <div class="graph-description">Amount of samples used on <em>Discovery</em></div>
+
+                <div class="graph" id="samplesPerSong"></div>
+            </div>
+
+            <div id="showStopper">
+                <div id="headerFTF">Recognized Samples on Face to Face</div>
+
+                <div id="graphSectionFTF">
+                    <div id="faceToFaceChart"></div>
+                    <div id="sampleArt">
+                        <img id="sampleArtImage" src="" alt="Sample Cover Art" style="display: none;" />
+                    </div>
+                </div>
+
+            </div>
+
+            <script src="script.js"></script>
+        </body>
+</html>
