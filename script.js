@@ -26,7 +26,7 @@ const svgSC = d3
 const colorSC = d3
     .scaleOrdinal()
     .domain(["Songs With Samples", "Songs Without Samples"])
-    .range(["rgb(78, 0, 228)", "rgb(14, 17, 145)"]);
+    .range(["rgb(68, 31, 255)", "rgb(0, 0, 0)"]);
 
 // Create pie and arc
 const pieSC = d3.pie()
@@ -36,58 +36,24 @@ const arcSC = d3.arc()
     .innerRadius(0)
     .outerRadius(radiusSC);
 
-// Create tooltip container
-const tooltipSC = d3.select("#songsComparison")
-.append("div")
-.style("position", "absolute")
-.style("background", "#fff")
-.style("color", "#333")
-.style("padding", "5px 10px")
-.style("border-radius", "5px")
-.style("box-shadow", "0 2px 5px rgba(0,0,0,0.3)")
-.style("font-size", "12px")
-.style("pointer-events", "none")
-.style("opacity", 0); // Initially hidden
-
 // Draw slices
 svgSC.selectAll("path")
   .data(pieSC(dataSC))
   .enter()
   .append("path")
   .attr("d", arcSC)
-  .attr("fill", d => colorSC(d.data.category)) // Use the color scale
-  .attr("stroke", "black") // Add white stroke for better contrast
-  .style("stroke-width", "0px")
-  .on("mouseover", function (event, d) {
-    tooltipSC
-      .style("opacity", 1) // Make tooltip visible
-      .html(`<strong>${d.data.category}</strong><br>Songs: ${d.data.count}`) // Display category and count
-      .style("left", `${event.pageX + 10}px`) // Position tooltip
-      .style("top", `${event.pageY - 20}px`);
-    d3.select(this).attr("fill", d3.color(colorSC(d.data.category)).darker(0.5)); // Highlight slice
-  })
-  .on("mousemove", function (event) {
-    tooltipSC
-      .style("left", `${event.pageX + 10}px`)
-      .style("top", `${event.pageY - 20}px`);
-  })
-  .on("mouseout", function (event, d) {
-    tooltipSC.style("opacity", 0); // Hide tooltip
-    d3.select(this).attr("fill", colorSC(d.data.category)); // Reset slice color
-  });
+  .attr("fill", d => colorSC(d.data.category))
 
-
-// Add labels
+// Add labels directly on the pie chart
 svgSC.selectAll("text")
     .data(pieSC(dataSC))
     .enter()
     .append("text")
-    .text(d => d.data.category)
-    .attr("transform", d => `translate(${arcSC.centroid(d)})`)
+    .attr("transform", d => `translate(${arcSC.centroid(d)})`) // Position at slice center
     .style("text-anchor", "middle")
     .style("font-size", "14px")
-    .style("fill", "#fff");
-
+    .style("fill", "#fff") // White text for visibility
+    .text(d => `${d.data.category}: ${d.data.count}`); // Format label as "Category: Count"
 // ---------Sample Dates----------
 
 //Data
