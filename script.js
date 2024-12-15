@@ -54,6 +54,7 @@ svgSC.selectAll("text")
     .style("font-size", "14px")
     .style("fill", "#fff") // White text for visibility
     .text(d => `${d.data.category}: ${d.data.count}`); // Format label as "Category: Count"
+    
 // ---------Sample Dates----------
 
 //Data
@@ -239,7 +240,7 @@ svgSPS.selectAll(".bar")
       .html(`<strong>Samples:</strong> ${d}`) // Display only the number of samples
       .style("left", `${event.pageX + 10}px`)
       .style("top", `${event.pageY - 20}px`);
-    d3.select(this).attr("fill", "rgb(216, 255, 0)"); // Highlight bar with a distinct yellow
+    d3.select(this).attr("fill", "rgb(200, 0, 255)");
   })
   .on("mousemove", function (event) {
     tooltipSPS
@@ -396,42 +397,35 @@ faceToFaceData.forEach((d, i) => {
 
     // Draw sample nodes
     nodeGroup
-        .append("circle")
-        .attr("cx", x)
-        .attr("cy", y)
-        .attr("r", 10)
-        .attr("fill", "rgb(102, 0, 255)") // Set nodes to purple
-        .on("mouseover", function (event) {
-            tooltip
-                .style("opacity", 1)
-                .html(`<strong>${d.sample}</strong><br><span style="font-size:10px;">Year: ${d.year}</span>`)
-                .style("left", `${event.pageX + 10}px`)
-                .style("top", `${event.pageY - 20}px`);
-            d3.select(this)
-                .attr("fill", "rgb(255, 0, 0)") // Highlight node in bright red
+    .append("circle")
+    .attr("cx", x)
+    .attr("cy", y)
+    .attr("r", 10)
+    .attr("fill", "rgb(102, 0, 255)") // Set nodes to purple
+    .on("mouseover", function (event) {
+        // Update cover art
+        const coverArtUrl = coverArtMap[d.sample];
+        if (coverArtUrl) {
+            d3.select("#sampleArtImage")
+                .attr("src", coverArtUrl)
+                .style("display", "block");
+        }
 
-            // Update cover art
-            const coverArtUrl = coverArtMap[d.sample];
-            if (coverArtUrl) {
-                d3.select("#sampleArtImage")
-                    .attr("src", coverArtUrl)
-                    .style("display", "block");
-            }
-        })
-        .on("mousemove", function (event) {
-            tooltip
-                .style("left", `${event.pageX + 10}px`)
-                .style("top", `${event.pageY - 20}px`);
-        })
-        .on("mouseout", function () {
-            tooltip.style("opacity", 0); // Hide tooltip
-            d3.select(this)
-                .attr("fill", "rgb(102, 0, 255)") // Reset node color to purple
-                .attr("stroke", "none"); // Remove highlight
+        // Update sample info below the cover art
+        const infoContent = `<strong>${d.sample}</strong><br><span style="font-size:14px;">Year: ${d.year}</span>`;
+        document.getElementById("sampleInfo").innerHTML = infoContent;
 
-            // Hide cover art
-            d3.select("#sampleArtImage").style("display", "none");
-        });
+        // Highlight node
+        d3.select(this)
+            .attr("fill", "rgb(200, 0, 255)"); // Highlight color
+    })
+    .on("mousemove", function (event) {
+        // Do nothing for `mousemove`
+    })
+    .on("mouseout", function () {
+        d3.select(this)
+            .attr("fill", "rgb(102, 0, 255)"); // Reset node color
+    });
 });
 
 // Add central node and label in a separate group (on top of everything)
